@@ -1,18 +1,95 @@
 <ion-header>
+
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu-outline"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+
+    <ion-title text-center>
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only class="cart-button" (click)="openCart()">
+        <ion-icon name="cart">
+          <ion-badge color="danger" class="cart-noti">{{shared.cartquantity}}</ion-badge>
+        </ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content class="page-home" (ionScroll)="onScroll($event)">
+  <!-- top banners -->
+  <banners></banners>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <!-- top Segments  -->
+  <ion-segment [(ngModel)]="segments" color="primary">
+    <ion-segment-button value="topSeller">{{ 'Latest' | translate }}</ion-segment-button>
+    <ion-segment-button value="deals">{{ 'On Sale' | translate }} </ion-segment-button>
+    <ion-segment-button value="services"> {{ 'Featured' | translate }}</ion-segment-button>
+  </ion-segment>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <!-- top segments products -->
+  <div class="module" [ngSwitch]="segments">
+    <ion-slides slidesPerView=2.2 spaceBetween=10 *ngSwitchCase="'topSeller'" class="animate-product" dir="rtl">
+      <ion-slide *ngFor="let p of shared.tab1">
+        <product [data]="p" [type]="'normal'"></product>
+      </ion-slide>
+      <ion-slide class="swiper-slide-last">
+        <ion-card (click)="openProducts('latest')">
+          <ion-card-content>
+            <ion-icon name="checkmark-circle"></ion-icon>
+            <h4>{{ 'View All' | translate }}</h4>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-slides slidesPerView=2.2 spaceBetween=10 *ngSwitchCase="'deals'" dir="rtl" class="animate-product">
+      <ion-slide *ngFor="let p of shared.tab2">
+        <product [data]="p" [type]="'normal'"></product>
+      </ion-slide>
+      <ion-slide class="swiper-slide-last">
+        <ion-card (click)="openProducts('sale')">
+          <ion-card-content>
+            <ion-icon name="checkmark-circle"></ion-icon>
+            <h4>{{ 'View All' | translate }}</h4>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+
+
+
+
+    <ion-list class="list-view" *ngSwitchCase="'services'">
+      <span *ngFor="let p of shared.tab3">
+        <product [data]="p" [type]="'list'"></product>
+      </span>
+    </ion-list>
+
+
+
+    <sliding-tabs *ngSwitchCase="'topSeller'"></sliding-tabs>
+    <sliding-tabs *ngSwitchCase="'deals'"></sliding-tabs>
+
+
+  </div>
+
+
+
+  <ion-fab bottom right *ngIf="scrollTopButton">
+    <button ion-fab (click)="scrollToTop()">
+      <ion-icon name="arrow-round-up"></ion-icon>
+    </button>
+  </ion-fab>
+
 </ion-content>
+<ion-footer *ngIf="config.footerShowHide=='1'">
+  <footer></footer>
+</ion-footer>

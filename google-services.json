@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "332348391478",
+    "firebase_url": "https://e-mall-doha.firebaseio.com",
+    "project_id": "e-mall-doha",
+    "storage_bucket": "e-mall-doha.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332348391478:android:74010ae76c6ade53",
+        "android_client_info": {
+          "package_name": "com.emall.doha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332348391478-cu6cvitaeo407jk16v1cseu9v8tcp6q7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.emall.doha",
+            "certificate_hash": "1dec02f9579be49c976f62aa5b1fc6f1c55c5dc6"
+          }
+        },
+        {
+          "client_id": "332348391478-70f3v2tt3f8nqdvouguuvv0djekfrr2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbaqtV4FfLYLv9ZOSURRogHm0mzyBixJ4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332348391478-70f3v2tt3f8nqdvouguuvv0djekfrr2s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

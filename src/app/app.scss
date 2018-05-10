@@ -14,3 +14,225 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+* {
+    font-family: 'Cairo', sans-serif;
+    // font-size:13px !important;
+  }
+
+.button.button-md, .bar-button.bar-button-md{
+    .button-inner{
+        height: 110%;
+    }
+}
+
+.toolbar{
+    .bar-buttons{
+        .cart-button{
+            position: relative;
+            width: 42px;
+            top:1px;
+            right: 1px;
+            overflow: visible !important;
+            .icon{
+                .badge{
+                    background-color: color($colors, secondary-light);
+                    position: absolute;
+                    top: -3px;
+                    right: -5px;
+                }
+            }
+        }
+    }
+    .toolbar-title{
+        img{
+            width: 150px;
+            margin-top: 6px;
+        }
+    }
+}
+
+.form{
+    .list {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        .item {
+            //background-color:$white;
+        }
+    }
+}
+
+.form-secondary{
+    @extend.form;
+    .list{
+        .item {
+            background-color:transparent;
+        }
+    } 
+}
+
+.page-empty{
+    height: 100%;
+    .row{
+        height: 100%;
+        .icon{
+            color:darken(color($colors, light), 20%);
+            font-size:80px;
+        }
+        h4{
+            font-size: 17px;
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        h5{
+            color:darken(color($colors, light), 40%);
+            font-size: 15px;
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+//--------- side menu scss -----
+.side-menu{
+    .list-avatar{
+        margin-bottom: 0;
+        .item:after {
+            content: "";
+            background: url(../assets/icons_stripe.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.10;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;   
+          }
+        .item{
+            background-color:color($colors, primary);      
+            height: 80px;
+
+            ion-avatar{
+                .icon{
+                    color:color($colors, light);
+                    font-size: 50px;
+                    margin-top: -5px;
+                }
+            }
+            h2{
+                font-size: 18px;
+                font-weight: bold;
+                color: $white;
+            }
+            p{
+                color: $white;
+                white-space: normal;
+                font-size: 14px;
+                margin-top: 5px;
+            }
+            button{
+                //color:color($colors, light);
+            }
+        }
+    }
+    .list-menu{
+
+        .item{
+            border-bottom: 1px solid #dedede;
+            background-color: $white;
+            .item-inner{
+                border-bottom: none;
+            }
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+    }
+    .animate-item {
+        animation: flipInX 0.75s;
+    }
+}
+.animation-in {
+    animation: fadeIn 1s;
+}
+.animation-out {
+    animation: fadeOut 1s;
+}
+
+
+html[dir="rtl"]{
+    .module{
+        .slides{
+            .swiper-slide:first-child{
+                margin-right: 10px;
+            }
+            .swiper-slide-last {
+                padding-top: 3% !important;
+            }
+        }
+    }
+    .range-md [range-right] {
+        margin: 0 0 0 12px !important;
+    }
+    .range-md [range-left] {
+        margin: 0 12px 0 0 !important;
+    }
+    .text-input, .searchbar-input{
+        direction: rtl;
+    }
+    .product-detail-header [col-4] {
+        text-align: left !important;
+    }
+    
+}
+
+
+.toolbar-background-md{
+    background: #3399cc;
+}
+
+.segment-md-primary .segment-button.activated, .segment-md-primary .segment-button.segment-activated{
+    border-color: #3399cc;
+    color: #3399cc;
+    font-size: 1.5rem;
+}
+.segment-md-primary .segment-button{
+    color: #4589ab;
+    font-size: 1.5rem;
+}
+
+.toolbar .bar-buttons .cart-button .icon .badge{
+    background-color: #ff5e3a;
+    padding: 2px 6px 2px 6px;
+    position: absolute;
+    border-radius: 2px;
+    top: -3px;
+    right: -4px;
+}
+.side-menu .list-avatar .item h2{
+    margin-top: 4px;
+}
+.list-avatar .item{
+    background-color:#3399cc !important;
+}
+
+.slides .swiper-pagination-bullet-active{
+    background: #3399cc !important;
+}
+
+.fab-md{
+    background-color: #3399cc !important;
+}
+
+.slides .swiper-pagination-bullet{
+    border : 0 !important;
+}
+.slides .swiper-pagination-bullet{
+    background-color: #333333;
+}
